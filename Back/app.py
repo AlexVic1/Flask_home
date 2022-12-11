@@ -13,6 +13,10 @@ def students():
     if request.method =="GET":
        return myData
     if request.method =="POST":
+        request_data = request.get_josn()
+        name= request_data['name']
+        age= request_data['age']
+        
         myData.append({"name":"yuval","age":25})
         return myData
     #if request.method =="DELETE":
