@@ -10,6 +10,9 @@
 
 <body>
     <div id ="dispaly"> </div>
+    Name<input id="sName">
+    age<input id="age">
+    <button>Add</button>
     <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <script>
         const MY_SERVER = "http://127.0.0.1:5000/students"
@@ -20,7 +23,14 @@
             display.innerHTML= res.data.map(p=>`<div><h1>${p.name}${p.age}</h1></div>`).join("")
         }
         loaData()
+
+        // post post
+        const addData = async () => {
+            const res = await axios.post(MY_SERVER, {name: sName.value,age: age.value})
+            buildDisplay()
+        }
         
+
         
         
     </script>
